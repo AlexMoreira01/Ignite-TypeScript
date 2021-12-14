@@ -1,4 +1,4 @@
-import { ICategoriesRepository } from "../repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -13,7 +13,7 @@ interface IRequest {
  */
 
 // Service nao conhece o response pois com a troca do frame work ou abordagem tera de alterar em todos
-class CreateCategoryService {
+class CreateCategoryUseCase {
     constructor(private categoriesRepository: ICategoriesRepository) {}
 
     // Metodo responsavel por fazer tudo que o create tem de fazer
@@ -29,4 +29,4 @@ class CreateCategoryService {
     }
 }
 
-export { CreateCategoryService };
+export { CreateCategoryUseCase };
