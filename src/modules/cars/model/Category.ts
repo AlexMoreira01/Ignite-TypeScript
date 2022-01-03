@@ -8,7 +8,6 @@ class Category {
 
     constructor() {
         if (!this.id) {
-            // se for um novo registro e nao tiver um id ele ira criar aqui
             this.id = uuidV4();
         }
     }

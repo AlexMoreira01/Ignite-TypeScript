@@ -60,8 +60,9 @@
             "error",
             { "devDependencies": ["**/*.spec.js"] }
         ],
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
         // "no-use-before-define": ["error",{ "functions": false, "classes": false, "variables": false }]
+        "@typescript-eslint/explicit-module-boundary-types": ["error"]
     },
     "settings": {
         "import/resolver": {

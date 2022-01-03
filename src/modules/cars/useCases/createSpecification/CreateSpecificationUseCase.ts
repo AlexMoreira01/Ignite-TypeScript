@@ -1,7 +1,7 @@
 import { ISpecificationsRepository } from "../../repositories/ISpecificatiosRepository";
 
 interface IRequest {
-    name: string; // Recebe
+    name: string;
     description: string;
 }
 
@@ -14,7 +14,7 @@ class CreateSpecificationUseCase {
             this.specificationsRepository.findByName(name);
 
         if (specificationAlreadyExists) {
-            throw new Error("Speicification already exists");
+            throw new Error("Specification already exists");
         }
 
         this.specificationsRepository.create({

@@ -8,7 +8,6 @@ class Specification {
 
     constructor() {
         if (!this.id) {
-            // se for um novo registro e nao tober um id ele cria aqui
             this.id = uuidV4();
         }
     }
