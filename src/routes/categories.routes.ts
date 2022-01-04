@@ -11,16 +11,14 @@ const upload = multer({
     dest: "./tmp",
 });
 
-//           categories agora é passsado direto no server.ts foi movido para index.ts / nao ira precisar colocar categories ois seu path inicial esta em server.ts
 categoriesRoutes.post("/", (request, response) => {
     return createCategoryController.handle(request, response);
-    // chamadno o handle de createCategoryController dele passando request e response
 });
 
 categoriesRoutes.get("/", (request, response) => {
     return listCategoriesController.handle(request, response);
-    // Chamando
 });
+
 // file == nome reconhecido pelo insominia
 categoriesRoutes.post("/import", upload.single("file"), (request, response) => {
     return importCategoryController.handle(request, response);
