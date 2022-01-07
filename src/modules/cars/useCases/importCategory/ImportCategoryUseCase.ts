@@ -40,8 +40,7 @@ class ImportCategoryUseCase {
     }
 
     async execute(file: Express.Multer.File): Promise<void> {
-        // quadno se usa async await e preciso definir a promisse como retorno
-
+        // quadno se usa async await e preciso definir a promisse como retorno mesmo sem retorno nenhum
         const categories = await this.loadCategories(file);
 
         categories.map(async (category) => {
