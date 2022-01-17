@@ -2,7 +2,7 @@ import { CategoriesRepository } from "../../repositories/implementations/Categor
 import { ListCategoriesController } from "./ListCategoriesController";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
-const categoriesRepository = CategoriesRepository.getInstance(); // Não depende de ninguem
+const categoriesRepository = null; // Não depende de ninguem
 const listCategoriesUseCase = new ListCategoriesUseCase(categoriesRepository); // Depende do Repositorio
 const listCategoriesController = new ListCategoriesController(
     listCategoriesUseCase
