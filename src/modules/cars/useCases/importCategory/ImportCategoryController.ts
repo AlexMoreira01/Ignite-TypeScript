@@ -1,17 +1,16 @@
 import { Request, Response } from "express";
+import { container } from "tsyringe";
 
 import { ImportCategoryUseCase } from "./ImportCategoryUseCase";
 
 class ImportCategoryController {
-    // Construtor que recebe o que foi passado nesse caso o importCategoryUseCase do mesmo tipo da classe do outro arquivo
-    constructor(private importCategoryUseCase: ImportCategoryUseCase) {}
-
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { file } = request;
 
-        // Quando se cria o construtor do tipo da classe é como se a variavel agora possuisse todos os metodos daquela classe
-        this.importCategoryUseCase.execute(file);
-        return response.send();
+        const importCategoryUseCase = container.resolve(ImportCategoryUseCase);
+
+        await importCategoryUseCase.execute(file);
+        return response.status(201).send();
     }
 }
 

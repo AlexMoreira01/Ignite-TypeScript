@@ -1,9 +1,9 @@
 import { request, response, Router } from "express";
 import multer from "multer";
 
-import createCategoryController from "../modules/cars/useCases/createCategory";
-import { importCategoryController } from "../modules/cars/useCases/importCategory";
-import { listCategoriesController } from "../modules/cars/useCases/listCategories"; // Como é um index nao precisa indicar importação
+import { CreateCategoryController } from "../modules/cars/useCases/createCategory/CreateCategoryController";
+import { ImportCategoryController } from "../modules/cars/useCases/importCategory/ImportCategoryController";
+import { ListCategoriesController } from "../modules/cars/useCases/listCategories/ListCategoriesController";
 
 const categoriesRoutes = Router();
 
@@ -11,19 +11,20 @@ const upload = multer({
     dest: "./tmp",
 });
 
-categoriesRoutes.post("/", (request, response) => {
-    console.log("Reload ON");
-    return createCategoryController().handle(request, response);
-});
+const createCategoryController = new CreateCategoryController();
+const importCategoryController = new ImportCategoryController();
+const listCategoriesController = new ListCategoriesController();
+//                          Utilizado como um midelleware
+categoriesRoutes.post("/", createCategoryController.handle);
 
-categoriesRoutes.get("/", (request, response) => {
-    return listCategoriesController.handle(request, response);
-});
+categoriesRoutes.get("/", listCategoriesController.handle);
 
 // file == nome reconhecido pelo insomnia
-categoriesRoutes.post("/import", upload.single("file"), (request, response) => {
-    return importCategoryController.handle(request, response);
+categoriesRoutes.post(
+    "/import",
+    upload.single("file"),
+    importCategoryController.handle
     // Passando para o handle de importCategory o request e response
-});
+);
 
 export { categoriesRoutes };

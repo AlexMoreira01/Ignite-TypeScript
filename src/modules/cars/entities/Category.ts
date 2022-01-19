@@ -12,7 +12,7 @@ class Category {
     @Column()
     description: string;
 
-    @CreateDateColumn()
+    @CreateDateColumn() // Ja tem a anotation para criates e updates dates
     created_at: Date;
 
     constructor() {

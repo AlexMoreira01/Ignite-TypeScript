@@ -16,7 +16,6 @@ class CategoriesRepository implements ICategoriesRepository {
     }
 
     async create({ description, name }: ICreateCategoryDTO): Promise<void> {
-        // Quadno nao se tem retorno mas se esta usando promises
         // Cria a entidade para ser salva
         const category = this.repository.create({
             description,
@@ -27,7 +26,7 @@ class CategoriesRepository implements ICategoriesRepository {
     }
 
     async list(): Promise<Category[]> {
-        const categories = await this.repository.find(); // vai retornar uma promise --  ver ao passar o mouse
+        const categories = await this.repository.find(); // vai retornar uma promise -- ver ao passar o mouse
         return categories; // Retornando a lista
     }
 
