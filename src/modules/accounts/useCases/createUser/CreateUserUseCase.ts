@@ -2,6 +2,7 @@ import { hash } from "bcryptjs";
 // https://app.rocketseat.com.br/h/forum/node-js/165ab227-7699-4ccf-808b-52c71135c710
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -21,7 +22,7 @@ class CreateUserUseCase {
         const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
         if (userAlreadyExists) {
-            throw new Error("User already exists");
+            throw new AppError("User already exists");
         }
 
         const passwordHash = await hash(password, 8);
