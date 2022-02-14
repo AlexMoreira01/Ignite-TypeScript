@@ -8,7 +8,7 @@ const specicationsRoutes = Router();
 const createSpecificationController = new CreateSpecificationController();
 
 specicationsRoutes.use(ensureAuthenticated);
-// Passa o request e repsonse como um midlleaware autoamtico
+// Passa o request e response como um midlleaware autoamtico
 specicationsRoutes.post("/", createSpecificationController.handle);
 
 export { specicationsRoutes };

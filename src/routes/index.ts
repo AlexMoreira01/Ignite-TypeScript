@@ -8,10 +8,10 @@ import { usersRoutes } from "./users.routes";
 
 const router = Router();
 
-// sempre iniciara com categorie agora
+// sempre iniciara com categorie agora e daqui é chamado as rotas
 router.use("/categories", categoriesRoutes); // Middlewares rota caregories
 router.use("/specifications", specicationsRoutes); // Middlewares rota caregories
-router.use("/users", usersRoutes);
-router.use(authenticateRoutes); // passsar somente com / sem chamar outro sem o path
+router.use("/users", usersRoutes); // apontando para as rotas de usuarios
+router.use(authenticateRoutes); // passsar somente com / sem chamar outro sem o path no naveegador
 
 export { router };

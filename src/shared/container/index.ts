@@ -8,7 +8,7 @@ import { SpecificationsRepository } from "../../modules/cars/repositories/implem
 import { ISpecificationsRepository } from "../../modules/cars/repositories/ISpecificatiosRepository";
 
 // Singleton => para se ter apenas uma instancia
-container.registerSingleton<ICategoriesRepository>(
+container.registerSingleton<ICategoriesRepository>( // o register singleton sera a interface
     "CategoriesRepository", // Nome do Container
     CategoriesRepository // Classe a ser chamada toda vez que o nome for chamado
 );

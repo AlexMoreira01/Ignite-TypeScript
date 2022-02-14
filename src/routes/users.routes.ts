@@ -12,6 +12,7 @@ const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
 const createUserController = new CreateUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
 
+// para o / pois os paths estao todos no index
 usersRoutes.post("/", createUserController.handle);
 
 usersRoutes.patch(

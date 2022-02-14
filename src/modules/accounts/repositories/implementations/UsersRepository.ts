@@ -11,6 +11,7 @@ class UsersRepository implements IUsersRepository {
         this.repository = getRepository(User);
     }
 
+    // desestruturação
     async create({
         name,
         email,

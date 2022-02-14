@@ -1,9 +1,3 @@
-// Adicionar coluna avatar na tabela users
-// Refatorar usuario com coluna avatar
-// Configuração upload multer
-// Criar regra de negocio do upload
-// Criar controller
-
 import { inject, injectable } from "tsyringe";
 
 import { deleteFile } from "../../../../utils/file";

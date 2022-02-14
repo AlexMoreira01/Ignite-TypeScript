@@ -31,8 +31,6 @@ class CategoriesRepository implements ICategoriesRepository {
     }
 
     async findByName(name: string): Promise<Category> {
-        // findOnde retorna um registro e se pode fazer um where nele
-        // Select * from categories where name = "name" limit 1 // { } funcionam como o where
         const category = await this.repository.findOne({ name });
         return category;
     }

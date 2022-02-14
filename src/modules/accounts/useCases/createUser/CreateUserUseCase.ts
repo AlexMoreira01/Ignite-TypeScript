@@ -6,11 +6,11 @@ import { AppError } from "../../../../errors/AppError";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
-@injectable()
+@injectable() // Sem ele nao é possivel inejetar através do container.resolve no controller
 class CreateUserUseCase {
     constructor(
         @inject("UsersRepository")
-        private usersRepository: IUsersRepository
+        private usersRepository: IUsersRepository // registrado dnetro do container
     ) {}
 
     async execute({
