@@ -9,4 +9,5 @@ export const deleteFile = async (filename: string) => {
     }
 
     await fs.promises.unlink(filename);
+    // unlink remove de fato o arquivo
 };
