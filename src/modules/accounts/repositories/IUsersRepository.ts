@@ -1,7 +1,7 @@
 // Se cria o que as funções vao receber e os metodos
 
 import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
-import { User } from "../entities/User";
+import { User } from "../infra/typeorm/entities/User";
 
 interface IUsersRepository {
     // como é um objeto grande nao se faz a destruturação

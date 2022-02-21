@@ -2,9 +2,9 @@ import { hash } from "bcryptjs";
 // https://app.rocketseat.com.br/h/forum/node-js/165ab227-7699-4ccf-808b-52c71135c710
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/AppError";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { AppError } from "@shared/errors/AppError";
 
 @injectable() // Sem ele nao é possivel inejetar através do container.resolve no controller
 class CreateUserUseCase {
