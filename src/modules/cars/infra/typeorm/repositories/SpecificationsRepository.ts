@@ -3,7 +3,7 @@ import { getRepository, Repository } from "typeorm";
 import {
     ICreateSpecificationDTO,
     ISpecificationsRepository,
-} from "@modules/cars/repositories/ISpecificatiosRepository";
+} from "@modules/cars/repositories/ISpecificationsRepository";
 
 import { Specification } from "../entities/Specification";
 
@@ -17,20 +17,27 @@ class SpecificationsRepository implements ISpecificationsRepository {
     async create({
         description,
         name,
-    }: ICreateSpecificationDTO): Promise<void> {
+    }: ICreateSpecificationDTO): Promise<Specification> {
         const specification = this.repository.create({
             description,
             name,
         });
 
         await this.repository.save(specification);
+
+        return specification;
     }
 
     async findByName(name: string): Promise<Specification> {
-        const specification = this.repository.findOne({
+        const specification = await this.repository.findOne({
             name,
         });
         return specification;
+    }
+
+    async findByIds(ids: string[]): Promise<Specification[]> {
+        const specifications = await this.repository.findByIds(ids); // Metodo do proprio typeorm aqui nessa consulta
+        return specifications;
     }
 }
 

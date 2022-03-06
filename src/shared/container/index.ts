@@ -7,7 +7,7 @@ import { CategoriesRepository } from "@modules/cars/infra/typeorm/repositories/C
 import { SpecificationsRepository } from "@modules/cars/infra/typeorm/repositories/SpecificationsRepository";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
-import { ISpecificationsRepository } from "@modules/cars/repositories/ISpecificatiosRepository";
+import { ISpecificationsRepository } from "@modules/cars/repositories/ISpecificationsRepository";
 
 // Singleton => para se ter apenas uma instancia
 container.registerSingleton<ICategoriesRepository>( // o register singleton sera a interface
