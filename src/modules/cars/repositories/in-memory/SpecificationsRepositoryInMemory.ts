@@ -31,8 +31,7 @@ class SpecificationsRepositoryInMemory implements ISpecificationsRepository {
         const allSpecifiations = this.specifications.filter((specification) =>
             ids.includes(specification.id)
         );
-        // includes é usado para pegar os ids que estao inclusos dentro do array ids
-        // se consegue os objetos das specifications
+
         return allSpecifiations;
     }
 }

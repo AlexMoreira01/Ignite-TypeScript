@@ -2,12 +2,6 @@
 
 Projeto feito a partir das aulas do Ignite na Rocketseat na trilha de Node.js
 
-**RF** => Requisitos Funcionais
-
-**RNF** => Requisitos não funcionais
-
-**RN** => Regra de negocio
-
 
 # Cadastro de carros
 

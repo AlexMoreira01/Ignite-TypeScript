@@ -6,26 +6,18 @@ import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
 
-// Agrupar os testes
 describe("Create Category", () => {
-    // Antes de algum teste ele ira fazer essa função -- ira instanciar as duas variaveis acima
     beforeEach(() => {
-        // Repositorio em memoria pois esse teste nao testa coneçoes com banco de dados
-        // Quadno estamos usando interfaces podemos criar nossa propria implementação baseada na interface -- podemos usar repositorys difrentes dos do containers
         categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
         createCategoryUseCase = new CreateCategoryUseCase(
-            categoriesRepositoryInMemory // Utilizando mesma instancia do repositorio não se tem problemas de uma hora ser crido e outra não conseguir criar
-        ); // passando o repositorio para o use case como faziamos no inicio
+            categoriesRepositoryInMemory
+        );
     });
-
-    // Ocorrem testes isolados para que cada metodo tenha a garantia que esta funcionando corretamente
-    // A cada vez que um teste e executado os dados aparentam ser zerados, sendo os dados unicos criados em cada teste
 
     // Testando o caso de sucesso -- criação de categoria
     it("should be able to create a new category", async () => {
         // Criando um objeto de categoria que não tem um id
         const category = {
-            // Ira utiliza o name em dois luagres
             name: "Category Test",
             description: "Category description Test",
         };

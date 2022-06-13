@@ -47,13 +47,12 @@ class Car {
     @Column()
     category_id: string;
 
-    // Um carro pode ter mais de uma especificação
     // Tabelas de relacionamentos sao manytomany
-    @ManyToMany(() => Specification) // Tabela a ser feita
+    @ManyToMany(() => Specification)
     @JoinTable({
         name: "specifications_cars", // Tabela de relacionamento
-        joinColumns: [{ name: "car_id" }], // coluna em specifications_cars que pertence a cars // nome da coluna da tabela de relacionamento que referencia a esta tabela atual
-        inverseJoinColumns: [{ name: "specification_id" }], // A outra coluna que referencia a outra tabela que esta sendo colocada dentro do ManyToMany
+        joinColumns: [{ name: "car_id" }], // coluna em specifications_cars que pertence a cars
+        inverseJoinColumns: [{ name: "specification_id" }],
     })
     specifications: Specification[];
 

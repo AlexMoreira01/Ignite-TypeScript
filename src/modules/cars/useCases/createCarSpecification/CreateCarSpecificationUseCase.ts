@@ -13,8 +13,8 @@ interface IRequest {
 @injectable()
 class CreateCarSpecificationUseCase {
     constructor(
-        @inject("CarsRepository") // atribuindo a carsRepository uma instancia do repositorio
-        private carsRepository: ICarsRepository, // esse orivate carsRepository é  do tipo IcarsRepository portanto ele possui os metodos la criados // e é injetado nele o repositorio no qual ele ira usar os metodos para executar
+        @inject("CarsRepository")
+        private carsRepository: ICarsRepository,
 
         @inject("SpecificationsRepository")
         private specificationsRepository: ISpecificationsRepository
@@ -27,12 +27,12 @@ class CreateCarSpecificationUseCase {
             throw new AppError("Car does not exitst!");
         }
 
-        // Buscas das especificações pelo id -- array de ibjeos do findByIds
+        // Buscas das especificações pelo id -- array de objetos do findByIds
         const specifications = await this.specificationsRepository.findByIds(
             specifications_id
         );
 
-        // Alterar o valor de specification dentro da tabela do carro encontrado passando os ids das specificaçõe encotradas
+        // Alterar o valor de specification dentro da tabela do carro encontrado, passando os ids das specificaçõe encotradas
         carExists.specifications = specifications;
 
         // Update no parametro de carros

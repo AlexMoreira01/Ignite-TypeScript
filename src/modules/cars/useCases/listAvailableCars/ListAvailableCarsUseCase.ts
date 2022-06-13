@@ -9,13 +9,10 @@ interface IRequest {
     name?: string;
 }
 
-// Quando queremos injetar o repositorio é o inject
-// Quando queremos que o useCase seja injetado é o injectable
-
-@injectable() // injetado pelo controller
+@injectable()
 class ListAvailableCarsUseCase {
     constructor(
-        @inject("CarsRepository") // Colocando no private
+        @inject("CarsRepository")
         private carsRepository: ICarsRepository
     ) {}
 

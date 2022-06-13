@@ -10,8 +10,6 @@ export class CreateSpecificationsCars1646449905110
 {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
-            // Tabela de relacionamentos
-
             new Table({
                 name: "specifications_cars",
                 columns: [
@@ -32,9 +30,8 @@ export class CreateSpecificationsCars1646449905110
             })
         );
 
-        // Segundo jeito de se criar foreing keys -- Criação por partes -- 1 tabela 2 foreignKey 3 foreingKey
         await queryRunner.createForeignKey(
-            "specifications_cars", // Nome tabela -- mesmo que a criada acima
+            "specifications_cars",
             new TableForeignKey({
                 name: "FKSpecificationCar",
                 referencedTableName: "specifications",
@@ -46,9 +43,9 @@ export class CreateSpecificationsCars1646449905110
         );
 
         await queryRunner.createForeignKey(
-            "specifications_cars", // Nome tabela -- mas a tabela é a mesma
+            "specifications_cars",
             new TableForeignKey({
-                name: "FKCarSpecification", // Nome foreingKey Precisa ser diferente -- mas a tabela é a mesma
+                name: "FKCarSpecification",
                 referencedTableName: "cars",
                 referencedColumnNames: ["id"],
                 columnNames: ["car_id"],
@@ -59,7 +56,6 @@ export class CreateSpecificationsCars1646449905110
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        // Para se dar o down precisa se fazer o processo reverso -- removendo primeiro as foreingKeys dps a tabela
         await queryRunner.dropForeignKey(
             "specifications_cars",
             "FKCarSpecification"

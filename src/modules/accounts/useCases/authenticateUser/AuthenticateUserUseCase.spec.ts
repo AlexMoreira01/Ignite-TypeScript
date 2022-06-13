@@ -9,10 +9,8 @@ let authenticateUserUseCase: AuthenticateUserUseCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;
 let createUserUseCase: CreateUserUseCase;
 
-// Ocorrem testes isolados para que cada metodo tenha a garantia que esta funcionando corretamente
-
 describe("Authencticate User", () => {
-    // Antes da autenticação ira se criar o usuario com o create UseruseCAse
+    // Antes da autenticação ira se criar o usuario com o create UserUseCase
     beforeEach(() => {
         usersRepositoryInMemory = new UsersRepositoryInMemory();
         authenticateUserUseCase = new AuthenticateUserUseCase(
@@ -23,11 +21,11 @@ describe("Authencticate User", () => {
 
     // Deve ser capaz de autenticar um usuario
     it("should be able to authenticate an user", async () => {
-        // aqui se cria um user sem validações pois a responsabilidade e do teste de criação, aqui so estamos testando a authenticação
+        // aqui se cria um user sem validações pois a responsabilidade e do teste de criação, aqui so estamos testando a autenticação
         const user: ICreateUserDTO = {
             driver_license: "000123",
             email: "user@test.com",
-            password: "12345", // Responsabilidade de criptografar fica para o use case
+            password: "12345",
             name: "User Test",
         };
 
@@ -38,13 +36,11 @@ describe("Authencticate User", () => {
             password: user.password,
         });
 
-        // Se espera que esse resultado tenha uma propriedade token
         expect(result).toHaveProperty("token");
     });
 
-    // Não se precisa criar um usuario novo pois esse user a baixo não deve existir
+    // Não precisa criar um usuario novo pois esse user abaixo não deve existir
     it("should not ber able to authenticate an nonexistent user", () => {
-        // exprects usados diretamente quando ja se espera um erro
         expect(async () => {
             await authenticateUserUseCase.execute({
                 email: "false@email.com",
