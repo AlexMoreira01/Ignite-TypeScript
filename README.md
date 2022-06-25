@@ -65,3 +65,7 @@ O usuario deve estar logado na aplicação.
 
 
 
+pass 12345
+
+  "email": "admin@rentx.com.br",
+  "password": "admin"
