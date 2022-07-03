@@ -16,7 +16,7 @@ const listAvailableCarsController = new ListAvailableCarsController();
 const createCarSpecificationController = new CreateCarSpecificationController();
 const uploadCarImagesController = new UploadCarImagesController();
 
-const upload = multer(uploadConfig.upload("./tmp/cars")); // pasta passada para salvar infos
+const upload = multer(uploadConfig); // pasta passada para salvar infos
 
 // Verificando se esta logado e se é um admin
 carsRoutes.post(
