@@ -6,6 +6,6 @@ coverage
 !tmp/.gitkeep
 ormconfig.json
 dist/
-
+indexLocal.ts
 
 
