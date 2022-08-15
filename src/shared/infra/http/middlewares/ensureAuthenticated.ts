@@ -2,8 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
 import auth from "@config/auth";
-// import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
-// import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 import { AppError } from "@shared/errors/AppError";
 
 interface IPayload {
@@ -25,7 +23,7 @@ export async function ensureAuthenticated(
 
     try {
         const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
-        // "4c2ade7acd1cecdfc6d10e01ec7af672"
+        //                             "4c2ade7acd1cecdfc6d10e01ec7af672"
 
         request.user = {
             id: user_id,

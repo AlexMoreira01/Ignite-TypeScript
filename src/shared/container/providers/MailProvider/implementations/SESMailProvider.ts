@@ -31,6 +31,7 @@ class SESMailProvider implements IMailProvider {
 
         const templateHTML = templateParse(variables);
 
+        // Credenciais sejam as mesmas desse dominio
         await this.client.sendMail({
             to,
             from: "Rentx <noreplay@rentx.com.br>",

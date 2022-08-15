@@ -9,11 +9,11 @@ import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepositor
 class ProfileUserUseCase {
     constructor(
         @inject("UsersRepository")
-        private usersRepositoru: IUsersRepository
+        private usersRepository: IUsersRepository
     ) {}
 
     async execute(id: string): Promise<IUserResponseDTO> {
-        const user = await this.usersRepositoru.findById(id);
+        const user = await this.usersRepository.findById(id);
         return UserMap.toDTO(user);
     }
 }
